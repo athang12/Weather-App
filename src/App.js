@@ -22,7 +22,7 @@ function App() {
       }
       const temp = citiesInput.split(',').map(city => city.trim())
       console.log(temp)
-        const response = await axios.post('http://localhost:3001/getWeather', {
+        const response = await axios.post('https://weather-app-backend-production-1532.up.railway.app/getWeather', {
         cities: citiesInput.split(',').map(city => city.trim())
       });
       // console.log(response)
