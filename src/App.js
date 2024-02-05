@@ -29,7 +29,7 @@ function App() {
       setresp(response);
       const {city,data,desc,img}=response.data;
       setWeatherData(true)
-      console.log(data,desc,img);
+      console.log(city,data,desc,img);
       // setWeatherData(response.data.weather);
     } catch (error) {
       console.error('Error fetching weather:', error.message);
