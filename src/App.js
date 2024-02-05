@@ -69,7 +69,7 @@ function App() {
               <h3 className='text-blue-100 m-1 text-xl'>Temperature_Max : {data.temp_max} C</h3>
               <h3 className='text-blue-100 m-1 text-xl'>Pressure : {data.pressure} hPa</h3>
               <h3 className='text-blue-100 m-1 text-xl'>Humidity : {data.humidity}%</h3>
-              <img className='' src={img}/> 
+              <img className='' src={img} alt="weather images"/> 
               </div>
             ))}
           </div>
