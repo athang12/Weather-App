@@ -37,45 +37,49 @@ function App() {
   };
 
   return (
-    
-    <div className="App p-5 bg-[url('https://i.pinimg.com/originals/12/cf/dc/12cfdcbb2320824919f1f1b119591d39.jpg')] w-screen h-full bg-cover min-h-screen ">
-    <div className='flex justify-center' ><h1 className='text-6xl mb-10 font-bold font-serif text-white mt-2'>Weather App</h1></div>
-      <div className='flex justify-center'>
-      
-      <div className=''>
-        <label htmlFor="citiesInput" className='text-xl pr-5 font-bold text-white '>Enter Cities (Comma-Separated): </label>
+    <div className="App p-5 bg-cover min-h-screen bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: 'url(\'https://i.pinimg.com/originals/12/cf/dc/12cfdcbb2320824919f1f1b119591d39.jpg\')' }}>
+      <div className="text-center">
+        <h1 className="text-4xl sm:text-6xl mb-6 font-bold font-serif text-white mt-2">Weather App</h1>
+      </div>
+
+      <div className="max-w-md mx-auto">
+        <label htmlFor="citiesInput" className="text-xl font-bold text-white block">Enter Cities (Comma-Separated): </label>
         <input
           type="text"
           id="citiesInput"
-          className=' rounded-xl p-2 w-80 '
+          className="rounded-xl p-2 w-full"
           value={citiesInput}
           onChange={handleCitiesInput}
         />
-        <p className='text-xl pr-5 font-bold text-white '>For eg Pune,Mumbai,Tokyo</p>
-        <button className='block border-2 boder-blue-500 p-2 mt-4 bg-cyan-600 font-bold text-lg text-white rounded-xl ml-auto' onClick={getWeather}>Get Weather</button>
+        <p className="text-xl font-bold text-white block mt-2">For example: Pune, Mumbai, Tokyo</p>
+        <button className="block border-2 border-blue-500 p-2 mt-4 bg-cyan-600 font-bold text-lg text-white rounded-xl w-full" onClick={getWeather}>
+          Get Weather
+        </button>
       </div>
-      
-      </div>
+
       {weatherData && (
-        <div>
-          <h2 className='mt-10 text-5xl font-bold mb-4 '>Weather Results:</h2>
-          <div className='grid grid-cols-4 gap-4'>
-            {resp.data.map(( {city,data,desc,img},id) => (
-              <div className='ml-2 w-80 h-50 p-5 bg-gradient-to-r from-cyan-600 to-cyan-400  border-2 border-black rounded-lg  shadow-lg shadow-gray-700 font-bold mt-8' key={id}>
-              <h2 className='text-blue-100 m-1 text-4xl font-bold mb-2'>{city}</h2>
-              <h3 className='text-blue-100 m-1 text-xl'>Description : {desc}</h3>
-              <h3 className='text-blue-100 m-1 text-xl'>Temperature : {data.temp} C</h3>
-              <h3 className='text-blue-100 m-1 text-xl'>Temperature_Min : {data.temp_min} C</h3>
-              <h3 className='text-blue-100 m-1 text-xl'>Temperature_Max : {data.temp_max} C</h3>
-              <h3 className='text-blue-100 m-1 text-xl'>Pressure : {data.pressure} hPa</h3>
-              <h3 className='text-blue-100 m-1 text-xl'>Humidity : {data.humidity}%</h3>
-              <img className='' src={img} alt="weather images"/> 
+        <div className="mt-6">
+          <h2 className="text-3xl font-bold mb-4">Weather Results:</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {resp.data.map(({ city, data, desc, img }, id) => (
+              <div key={id} className="p-4 bg-gradient-to-r from-cyan-600 to-cyan-400 border-2 border-black rounded-lg shadow-lg shadow-gray-700 font-bold">
+                <h2 className="text-blue-100 m-1 text-2xl font-bold mb-2">{city}</h2>
+                <h3 className="text-blue-100 m-1 text-lg">Description: {desc}</h3>
+                <h3 className="text-blue-100 m-1 text-lg">Temperature: {data.temp} C</h3>
+                <h3 className="text-blue-100 m-1 text-lg">Temperature_Min: {data.temp_min} C</h3>
+                <h3 className="text-blue-100 m-1 text-lg">Temperature_Max: {data.temp_max} C</h3>
+                <h3 className="text-blue-100 m-1 text-lg">Pressure: {data.pressure} hPa</h3>
+                <h3 className="text-blue-100 m-1 text-lg">Humidity: {data.humidity}%</h3>
+                <img className="mt-4" src={img} alt="weather images" />
               </div>
             ))}
           </div>
         </div>
       )}
-      <div><h2 className='text-xl ml-96 mt-12 font-bold text-black '>In case of any error or invalid results please refresh the page and try again !</h2></div>
+
+      <div className="text-center mt-8">
+        <h2 className="text-lg font-bold text-black">In case of any error or invalid results please refresh the page and try again!</h2>
+      </div>
     </div>
   );
 }
