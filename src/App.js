@@ -7,15 +7,7 @@ function App() {
   const [citiesInput, setCitiesInput] = useState('');
   const [weatherData, setWeatherData] = useState(false);
 
-  async function fetchWeatherData(city) {
-    // Here, you can use any weather API of your choice to fetch real-time weather data.
-    // Example: OpenWeatherMap API
-    const apiKey = 'cc525bd1fbd2601be9e383269a19f61e';
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
-  
-    const response = await axios.get(apiUrl);
-    return `${response.data.main.temp}C`;
-  }
+ 
 
   const handleCitiesInput = (event) => {
     setCitiesInput(event.target.value);
